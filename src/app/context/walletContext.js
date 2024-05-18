@@ -24,10 +24,9 @@ export default function WalletContext({ children }) {
     );
 
     return (
-        <ConnectionProvider endpoint={endpoint} >
-            <WalletProvider wallets={wallets} >
+        <ConnectionProvider endpoint={endpoint}>
+            <WalletProvider wallets={wallets}>
                 <WalletModalProvider>
-                    {/* <WithdrawPage /> */}
                     {children}
                 </WalletModalProvider>
             </WalletProvider>

@@ -11,7 +11,7 @@ export default function Home() {
     }, [])
 
     const [splash, setSplash] = useState(false)
-    const [activeIndex, setActiveIndex] = useState(1)
+    const [activeIndex, setActiveIndex] = useState(0)
 
     return (
         <div>
@@ -44,11 +44,7 @@ export default function Home() {
                                     <p style={{ textAlign: 'center' }} className='w-10/12  m-auto text-[15px]'>
                                         {item.sub_title}
                                     </p>
-
-
-
                                 </div>
-
                             </div>
                         )
                     }
@@ -73,8 +69,6 @@ export default function Home() {
                     <button onClick={() => setActiveIndex(activeIndex + 1)} className='bg-[#FF8A00] w-[93px] text-white rounded-lg text-[15px] px-3 py-2'>Next</button>
                 </div>
             </div>
-
-
         </div >
 
     )
