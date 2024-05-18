@@ -1,15 +1,16 @@
 import React from 'react'
 import { useWallet } from '@solana/wallet-adapter-react';
-import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
+import { PhantomWalletAdapter,  PhantomWalletName} from '@solana/wallet-adapter-wallets';
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui'
 
 
 export default function CustomWalletButton() {
 
-  const { wallet, connect, disconnect, connected, publicKey } = useWallet();
+  const { wallet, connect, select, disconnect, connected, publicKey } = useWallet();
 
   const handleConnect = async () => {
     try {
-      await connect(new PhantomWalletAdapter());
+      select(PhantomWalletName);
     } catch (error) {
       console.error('Error connecting wallet:', error);
     }
@@ -21,15 +22,10 @@ export default function CustomWalletButton() {
   };
 
   return (
-    <div>
-      {connected ? (
-        <>
-          <p>Connected: {publicKey?.toBase58()}</p>
-          <button onClick={handleDisconnect}>Disconnect</button>
-        </>
-      ) : (
-        <button onClick={handleConnect}>Connect Wallet</button>
-      )}
-    </div>
+    <>
+    
+      <WalletMultiButton/>
+
+    </>
   )
 }
