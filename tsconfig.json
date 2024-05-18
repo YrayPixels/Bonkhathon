@@ -26,8 +26,10 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/app/api/get-teachers/route.js"  ],
+    "**/*.tsx",
+    "src/app/api/get-teachers/route.js",
+    "src/app/context/context.js"
+  ],
   "exclude": [
     "node_modules"
   ]
