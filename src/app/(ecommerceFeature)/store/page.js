@@ -1,4 +1,7 @@
-import React from 'react';
+"use client"
+
+import React, { useContext, useState }  from 'react';
+import { Shopcontext } from '../../context/ecommerceContext';
 
 const items = [
   { id: 1, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$10.00', image: 'https://via.placeholder.com/150' },
@@ -16,6 +19,17 @@ const items = [
 ];
 
 function App() {
+
+  const { setCartitem, cartitem } = useContext(Shopcontext);
+  const [isClicked, setIsClicked] = useState(null);
+
+  const handleAddToCart = () => {
+    setIsClicked(true);
+    if (!cartitem.some((storeItem) => storeItem.name === items.name && storeItem.cost === items.cost)) {
+        setCartitem((prevItems) => [...prevItems, { name: items.name, cost:items.cost, count:1}])
+    };
+  };
+
   return (
     <div className="min-h-screen bg-[#FF8A00] p-10">
       <header className="flex justify-between items-center mb-4">
@@ -44,9 +58,18 @@ function App() {
               <h2 className="text-sm font-bold mb-1">{item.name}</h2>
               <p className="text-xs text-gray-700 mb-1">{item.description}</p>
               <p className="text-sm text-gray-900 font-bold">{item.price}</p>
-              <button className='bg-[#FF8A00] text-white rounded-lg text-xs px-2 py-1 mt-2'>
+              {isClicked ? (
+          
+            <button className='bg-[#FF8A00] text-white rounded-lg text-xs px-2 py-1 mt-2'>
+              item Added
+            </button>
+          
+        ) : (
+              <button className='bg-[#FF8A00] text-white rounded-lg text-xs px-2 py-1 mt-2' 
+              onClick={handleAddToCart}>
                 Add to Cart
               </button>
+        )}
             </div>
           ))}
         </div>
