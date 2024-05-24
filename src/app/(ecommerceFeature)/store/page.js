@@ -2,6 +2,7 @@
 
 import React, { useContext, useState } from 'react';
 import { Shopcontext } from '../../context/ecommerceContext';
+import Link from 'next/link';
 
 const ProductCard = (props) => {
   const { setCartitem, cartitem } = useContext(Shopcontext);
@@ -10,7 +11,7 @@ const ProductCard = (props) => {
   const handleAddToCart = () => {
     setIsClicked(true);
     if (!cartitem.some((items) => items.name === props.name && items.cost === props.price)) {
-      setCartitem((prevItems) => [...prevItems, { name: props.name, cost: props.price, count: 1 }]);
+      setCartitem((prevItems) => [...prevItems, {  key:props.key, name: props.name, cost: props.price, image:props.image, count: 1 }]);
     }
   };
 
@@ -19,11 +20,13 @@ const ProductCard = (props) => {
       <img src={props.image} alt={props.name} className="w-full h-24 object-cover rounded-lg mb-2" />
       <h2 className="text-sm font-bold mb-1">{props.name}</h2>
       <p className="text-xs text-gray-700 mb-1">{props.description}</p>
-      <p className="text-sm text-gray-900 font-bold">{props.price}</p>
-      {isClicked ? (
+      <p className="text-sm text-gray-900 font-bold">${props.price}</p>
+      {isClicked ? ( 
+        <Link href='cart'>
         <button className='bg-[#FF8A00] text-white rounded-lg text-xs px-2 py-1 mt-2'>
           Item Added
         </button>
+        </Link>
       ) : (
         <button className='bg-[#FF8A00] text-white rounded-lg text-xs px-2 py-1 mt-2' onClick={handleAddToCart}>
           Add to Cart
@@ -35,18 +38,18 @@ const ProductCard = (props) => {
 
 function App() {
   const items = [
-    { key: 1, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$10.00', image: 'https://via.placeholder.com/150' },
-    { key: 2, name: 'Tomiwa', description: 'Tall, handsome, funny, creative and amazing', price: '$20.00', image: 'https://via.placeholder.com/150' },
-    { key: 3, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$15.00', image: 'https://via.placeholder.com/150' },
-    { key: 4, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$25.00', image: 'https://via.placeholder.com/150' },
-    { key: 5, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$18.00', image: 'https://via.placeholder.com/150' },
-    { key: 6, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$22.00', image: 'https://via.placeholder.com/150' },
-    { key: 7, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$17.00', image: 'https://via.placeholder.com/150' },
-    { key: 8, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$17.00', image: 'https://via.placeholder.com/150' },
-    { key: 9, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$17.00', image: 'https://via.placeholder.com/150' },
-    { key: 10, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$12.00', image: 'https://via.placeholder.com/150' },
-    { key: 11, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$21.00', image: 'https://via.placeholder.com/150' },
-    { key: 12, name: 'Moses', description: 'Rich, muscular and intelligent', price: '$24.00', image: 'https://via.placeholder.com/150' },
+    { key: 1, name: 'Moses', description: 'Rich, muscular and intelligent', price: '10.00', image: 'https://via.placeholder.com/150' },
+    { key: 2, name: 'Tomiwa', description: 'Tall, handsome, funny, creative and amazing', price: '70.00', image: 'https://via.placeholder.com/150' },
+    { key: 3, name: 'Moses', description: 'Rich, muscular and intelligent', price: '15.00', image: 'https://via.placeholder.com/150' },
+    { key: 4, name: 'Moses', description: 'Rich, muscular and intelligent', price: '25.00', image: 'https://via.placeholder.com/150' },
+    { key: 5, name: 'Moses', description: 'Rich, muscular and intelligent', price: '18.00', image: 'https://via.placeholder.com/150' },
+    { key: 6, name: 'Moses', description: 'Rich, muscular and intelligent', price: '22.00', image: 'https://via.placeholder.com/150' },
+    { key: 7, name: 'Moses', description: 'Rich, muscular and intelligent', price: '17.00', image: 'https://via.placeholder.com/150' },
+    { key: 8, name: 'Moses', description: 'Rich, muscular and intelligent', price: '17.00', image: 'https://via.placeholder.com/150' },
+    { key: 9, name: 'Moses', description: 'Rich, muscular and intelligent', price: '17.00', image: 'https://via.placeholder.com/150' },
+    { key: 10, name: 'Moses', description: 'Rich, muscular and intelligent', price: '12.00', image: 'https://via.placeholder.com/150' },
+    { key: 11, name: 'Moses', description: 'Rich, muscular and intelligent', price: '21.00', image: 'https://via.placeholder.com/150' },
+    { key: 12, name: 'Moses', description: 'Rich, muscular and intelligent', price: '24.00', image: 'https://via.placeholder.com/150' },
   ];
 
   return (
@@ -64,7 +67,7 @@ function App() {
           </button>
         </div>
         <div className="hidden md:flex items-center space-x-4">
-          <a href="#" className="text-white">Cart</a>
+          <Link href='cart' className="text-white">Cart</Link>
           <a href="#" className="text-white">Help</a>
           <a href="#" className="text-white">Account</a>
         </div>
