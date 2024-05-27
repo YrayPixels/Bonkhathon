@@ -1,10 +1,7 @@
 
 import { PRIMARY, SECONDARY } from './__utils__/utils';
 import '../styles.css';
-// export const metadata = {
-//   title: 'Servena',
-//   description: 'Self Service Platform',
-// }
+import '../extrastyles.css'
 
 export default function RootLayout({ children }) {
   return (
