@@ -29,7 +29,7 @@
     "**/*.tsx",
     "src/app/api/get-teachers/route.js",
     "src/app/context/context.js"
-  ],
+, "src/app/login/page.js"  ],
   "exclude": [
     "node_modules"
   ]

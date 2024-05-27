@@ -27,3 +27,15 @@ export const splashscreen = [
         sub_title: "Kids earn points for completing tasks and redeem them for rewards!"
     }
 ]
+
+
+export const labels = {
+    'change-wallet': 'Change wallet',
+    connecting: 'Connecting ...',
+    'copy-address': 'Copy address',
+    copied: 'Copied',
+    disconnect: 'Disconnect',
+    'has-wallet': 'Connect to Wallet',
+    'no-wallet': 'Connect to Wallet',
+    connected: 'Click to Disconnect',
+}
