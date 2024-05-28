@@ -40,9 +40,9 @@ export default function Page() {
           Return to shop
         </Link>
         <h2 className="text-2xl font-bold text-white mb-4 text-center">Your Cart:</h2>
-        <div className=" ml-[250px] items-center">
+        <div className="flex flex-wrap justify-center ">
           {cartitem.map((item, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg p-3 max-w-[300px] text-center">
+            <div key={index} className="bg-white rounded-lg shadow-lg p-3 m-2 w-[200px] lg:w-[300px] text-center">
               <img src={item.image} alt={item.name} className="w-full h-24 object-cover rounded-lg mb-2" />
               <h2 className="text-sm font-bold mb-1">{item.name}</h2>
               <p className="text-xs text-gray-700 mb-1">Cost: #{item.cost}</p>

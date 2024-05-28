@@ -1,37 +1,51 @@
-"use client"
+"use client";
 
 import React, { useContext, useState } from 'react';
 import { Shopcontext } from '../../context/ecommerceContext';
 import Link from 'next/link';
 
 const ProductCard = (props) => {
-  const { setCartitem, cartitem } = useContext(Shopcontext);
+  const { setCartitem, cartitem, setSelectedProduct } = useContext(Shopcontext);
   const [isClicked, setIsClicked] = useState(null);
 
   const handleAddToCart = () => {
     setIsClicked(true);
     if (!cartitem.some((items) => items.name === props.name && items.cost === props.price)) {
-      setCartitem((prevItems) => [...prevItems, {  key:props.key, name: props.name, cost: props.price, image:props.image, count: 1 }]);
+      setCartitem((prevItems) => [...prevItems, { key: props.key, name: props.name, cost: props.price, image: props.image, count: 1 }]);
     }
+  };
+
+  const handleViewDetails = () => {
+    setSelectedProduct({
+      key: props.key,
+      name: props.name,
+      cost: props.price,
+      description: props.description,
+      image: props.image
+    });
   };
 
   return (
     <div key={props.key} className="bg-white rounded-lg shadow-lg p-3 text-center">
       <img src={props.image} alt={props.name} className="w-full h-24 object-cover rounded-lg mb-2" />
-      <h2 className="text-sm font-bold mb-1">{props.name}</h2>
-      <p className="text-xs text-gray-700 mb-1">{props.description}</p>
-      <p className="text-sm text-gray-900 font-bold">${props.price}</p>
-      {isClicked ? ( 
+      <h2 className="text-sm mb-1">{props.name}</h2>
+      <p className="text-gray-900 font-bold">${props.price}</p>
+      {isClicked ? (
         <Link href='cart'>
-        <button className='bg-[#FF8A00] text-white rounded-lg text-xs px-2 py-1 mt-2'>
-          Item Added
-        </button>
+          <button className='bg-[#FF8A00] text-white rounded-lg text-xs px-2 py-1 mt-2'>
+            Item Added
+          </button>
         </Link>
       ) : (
         <button className='bg-[#FF8A00] text-white rounded-lg text-xs px-2 py-1 mt-2' onClick={handleAddToCart}>
           Add to Cart
         </button>
       )}
+      <Link href='detail'>
+        <button className='text-blue-500 text-sm mx-1 mt-2' onClick={handleViewDetails}>
+          View Details
+        </button>
+      </Link>
     </div>
   );
 };
