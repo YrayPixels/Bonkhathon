@@ -58,3 +58,14 @@
     scrollbar-width: none;
     /* Firefox */
 }
+
+.slider-container {
+    cursor: pointer;
+    user-select: none;
+    touch-action: none;
+    /* Prevent default scrolling behavior */
+}
+
+.slider {
+    transition: left 0.2s;
+}
