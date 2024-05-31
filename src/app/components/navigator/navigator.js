@@ -1,5 +1,6 @@
 "use client"
 import { House, Person, Settings, Task } from '@mui/icons-material'
+import Image from 'next/image';
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
@@ -13,7 +14,7 @@ export default function NavigatorComp() {
 
                     <div className='flex bg-[#FF8A00] text-white m-auto flex-row justify-around w-10/12 rounded-2xl items-center p-2 py-3 '>
                         <div onClick={() => { location.href = "/home" }}>
-                            <House />
+                            <Image src="/nav/home.png" width={30} height={30} />
                         </div>
                         <div>
                             <Task />
