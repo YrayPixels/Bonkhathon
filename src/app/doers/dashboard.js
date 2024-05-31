@@ -2,6 +2,7 @@
 import { CalendarMonth, Notifications } from '@mui/icons-material'
 import { Avatar } from '@mui/material'
 import React from 'react'
+import NavigatorComp from '../components/navigator/navigator'
 
 export default function DoersDashboard() {
 
@@ -65,13 +66,14 @@ export default function DoersDashboard() {
                 })}
             </div>
             <div>
-
-                <h2>Task Completed:</h2>
-                <h2>Trophies: <span>0 Bonk</span></h2>
+                <div className='p-4 bg-[#FF8A00] rounded-2xl shadow text-white'>
+                    <h2 className='font-bold text-[24px]'>Task Completed:</h2>
+                    <h2>Trophies: <span>0 Bonk</span></h2>
+                </div>
             </div>
 
             <div className='space-y-3' >
-                <h2 className='font-bold text-[30px] flex flex-row gap-x-4 items-start'>Ongoing Task <span className='bg-[#FF8A00] text-white text-[12px] p-1 rounded-lg '>22</span></h2>
+                <h2 className='font-bold text-[24px] flex flex-row gap-x-4 items-start'>Ongoing Task <span className='bg-[#FF8A00] text-white text-[12px] p-1 rounded-lg '>22</span></h2>
 
                 <div className='space-y-3 h-[400px] overflow-scroll remove-scroll'>
                     {dates.map((item, index) => {
@@ -88,6 +90,7 @@ export default function DoersDashboard() {
                     })}
                 </div>
             </div>
+
         </div>
     )
 }

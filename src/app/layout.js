@@ -3,6 +3,7 @@ import { PRIMARY, SECONDARY } from './__utils__/utils';
 import '../styles.css';
 import '../extrastyles.css'
 import WalletContextUser from './context/walletContext';
+import NavigatorComp from './components/navigator/navigator';
 
 export default function RootLayout({ children }) {
   return (
@@ -11,6 +12,8 @@ export default function RootLayout({ children }) {
         <WalletContextUser>
           {children}
         </WalletContextUser>
+
+        <NavigatorComp />
 
       </body>
     </html>

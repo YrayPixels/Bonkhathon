@@ -67,7 +67,7 @@ export default function Dashboard() {
                 setUsetType(user);
             }
         }
-    }, [window])
+    }, [])
     return (
         <div className="bg-fill h-screen bg-[url('/images/bg.png')] ">
             {userType == 'Child' ?
