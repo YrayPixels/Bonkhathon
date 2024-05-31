@@ -134,56 +134,21 @@ export default function WalletComp() {
             {prompt == "" && subPrompt == "" &&
               <div className="flex flex-row justify-center gap-4 items-center">
                 <div onClick={() => {
-                  setPrompt("Welcome Assigner")
-                  localStorage.setItem('userType', 'Assigner')
-                  setSubPrompt("What kind of task would you like get done today?")
+                  localStorage.setItem('userType', 'Parent')
+                  // location.href = '/home'
+                  setOnBoarding(false)
                 }} class="blobloader flex flex-row justify-center items-center font-bold text-white">
-                  Assigner
+                  Parent
                 </div>
                 <div onClick={() => {
-                  setPrompt("Welcome Doer")
-                  localStorage.setItem('userType', 'Doer')
-                  setSubPrompt("Ready to roll?, kinldy select the kind of task you want to accomplish today.")
+                  localStorage.setItem('userType', 'Child')
+                  setOnBoarding(false)
                 }} class="blobloader2 flex flex-row justify-center items-center font-bold text-white">
-                  Doer
+                  Child
                 </div>
               </div>
             }
-            {prompt == "Welcome Assigner" &&
-              <div className="justify-center space-y-4 ">
-                <button onClick={() => {
-                  localStorage.setItem('tasksType', 'openTasks')
-                  setOnBoarding(false);
-                }} className="w-full border hover:bg-[#FF8A00] rounded-lg p-3 ">Opened Tasks</button>
-                <button onClick={() => {
-                  localStorage.setItem('tasksType', 'groupTasks')
-                  setOnBoarding(false);
-                }} className='hover:bg-transparent hover:border bg-[#FF8A00] w-full text-white rounded-lg p-3 '>Closed Group Tasks</button>
 
-                <p onClick={() => {
-                  setPrompt("")
-                  setSubPrompt("")
-                }} style={{ cursor: 'pointer' }} className="text-end text-[14px]">Change usage?</p>
-              </div>
-            }
-
-            {prompt == "Welcome Doer" &&
-              <div className="justify-center space-y-4 ">
-                <button onClick={() => {
-                  localStorage.setItem('tasksType', 'BrowseTasks')
-                  setOnBoarding(false);
-                }} className="w-full border hover:bg-[#FF8A00] rounded-lg p-3 ">Browse Tasks</button>
-                <button onClick={() => {
-                  localStorage.setItem('tasksType', 'GroupTasks')
-                  setOnBoarding(false);
-                }} className='hover:bg-transparent hover:border bg-[#FF8A00] w-full text-white rounded-lg p-3 '>Join Group</button>
-                <p onClick={() => {
-                  setPrompt("")
-                  setSubPrompt("")
-                }} style={{ cursor: 'pointer' }} className="text-end text-[14px]">Change usage?</p>
-              </div>
-
-            }
           </div>
         }
 

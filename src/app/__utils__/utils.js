@@ -39,3 +39,5 @@ export const labels = {
     'no-wallet': 'Connect to Wallet',
     connected: 'Click to Disconnect',
 }
+
+export const ngrokurl = "https://7cbb-102-91-49-132.ngrok-free.app/";
