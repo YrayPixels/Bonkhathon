@@ -50,21 +50,10 @@ export default function DoersDashboard() {
 
     ]
     return (
-        <div className='w-full p-4 m-auto'>
-
-            <div className='flex flex-row pt-2 justify-between items-center'>
-
-                <div className='flex flex-row justify-between items-center gap-x-2'>
-                    <Avatar />
-                    <h1>Hi, User</h1>
-                </div>
-                <div>
-                    <Notifications className='text-[#FF8A00]' />
-                </div>
-            </div>
+        <div className='w-full px-4 m-auto'>
             <div className='py-3'>
                 <div className='p-4 bg-[#FF8A00] rounded-2xl shadow text-white'>
-                    <h2 className='font-bold text-[24px]'>Task Completed: 10</h2>
+                    <h2 className='font-bold text-[24px]'>Quest Completed: 10</h2>
                     <h2><Stars /> <span>0 Bonk</span></h2>
                 </div>
             </div>
@@ -86,12 +75,12 @@ export default function DoersDashboard() {
 
 
             <div className='space-y-3' >
-                <h2 className='font-bold text-[24px] flex flex-row gap-x-4 items-start'>Ongoing Task <span className='bg-[#FF8A00] text-white text-[12px] p-1 rounded-lg '>22</span></h2>
+                <h2 className='font-bold text-[24px] flex flex-row gap-x-2 items-center'><span>Ongoing Quest </span> <span className='bg-[#FF8A00] text-white text-[12px] p-1 rounded-lg '>22</span></h2>
 
                 <div className='space-y-3 h-[380px] overflow-scroll remove-scroll'>
                     {dates.map((item, index) => {
                         return (
-                            <div key={index} className='rounded-2xl shadow bg-[#FF8A00]/10 p-3'>
+                            <div onClick={() => { location.href = `/tasks?id=${index}` }} key={index} className='rounded-2xl shadow bg-[#FF8A00]/10 p-3'>
                                 <div className='font-bold text-[16px]'>House Cleaning</div>
 
                                 <p className='text-[14px] border-b border-black/50 pb-3'>
