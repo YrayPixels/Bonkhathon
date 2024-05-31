@@ -49,7 +49,7 @@ const SlideButton = ({ onComplete }) => {
 
     return (
         <div
-            className="slider-container bg-[#ddd] relative h-[50px] w-full rounded-xl overflow-hidden shadow"
+            className="slider-container bg-[#ddd] relative h-[50px] w-full rounded-2xl overflow-hidden shadow"
             ref={sliderRef}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
@@ -58,12 +58,12 @@ const SlideButton = ({ onComplete }) => {
             onTouchEnd={handleTouchEnd}
         >
             <div
-                className="slider absolute rounded-xl bg-[#FF8A00] text-white h-full w-[150px] flex items-center justify-center cursor-pointer"
+                className="slider absolute rounded-2xl bg-[#FF8A00] text-white h-full w-[150px] flex items-center justify-center cursor-pointer"
                 style={{ left: `${position}px` }}
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleTouchStart}
             >
-                Slide to Complete
+                Mark Complete
             </div>
         </div>
     );
