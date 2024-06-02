@@ -21,7 +21,10 @@ const SlideButton = ({ onComplete }) => {
         const sliderWidth = sliderRef.current.offsetWidth;
         if (position > sliderWidth * 0.8) {
             setPosition(sliderWidth);
-            if (onComplete) onComplete();
+            if (onComplete) {
+                onComplete()
+                setPosition(0);// reset the position
+            };
         } else {
             setPosition(0);
         }

@@ -10,9 +10,9 @@ export default function NavigatorComp() {
     return (
         <>
             {path == '/' ? <></> : path == '/login' ? <></> :
-                <div className='fixed w-full    bottom-4 z-50'>
+                <div className='fixed w-full   bottom-4 z-50'>
 
-                    <div className='flex bg-[#FF8A00] text-white m-auto flex-row justify-around w-10/12 rounded-2xl items-center p-2 py-3 '>
+                    <div className='flex bg-[#FF8A00] text-white m-auto flex-row justify-around w-11/12 rounded-2xl items-center p-2 py-3 '>
                         <div className={`${path == '/home' && "bg-white p-1 rounded-xl"}`} onClick={() => { location.href = "/home" }}>
                             <Image src="/nav/home.png" width={35} alt="" height={35} />
                         </div>

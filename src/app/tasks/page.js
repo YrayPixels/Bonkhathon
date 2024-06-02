@@ -7,7 +7,7 @@ export default function Tasks() {
     const params = useSearchParams();
     let id = params.get('id');
     return (
-        <div className='w-10/12 py-4 m-auto'>
+        <div className='w-11/12 py-4 m-auto'>
 
             <div>
                 <h2>Task Title</h2>
