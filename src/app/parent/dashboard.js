@@ -46,7 +46,7 @@ export default function ParentDashboard() {
     }, [dates]);
 
     return (
-        <div className='w-11/12 p-3 m-auto'>
+        <div className='w-full px-4 m-auto'>
 
             {/* dates */}
             <div ref={containerRef} className='flex flex-row gap-x-2 remove-scroll justify-start overflow-scroll py-5'>
@@ -62,13 +62,38 @@ export default function ParentDashboard() {
                     )
                 })}
             </div>
+
+            <div className='h-[164px] bg-red-200 rounded-2xl p-4 mb-4'>
+                <div className='flex flex-row justify-between items-center'>
+                    <div>
+                        <h2 className='font-bold text-white'>Quests Assigned</h2>
+                        <p className='text-white text-center font-bold'>0</p>
+                    </div>
+                    <div>
+                        <h2 className='font-bold text-white'>Quests Assigned</h2>
+                        <p className='text-white text-center font-bold'>0</p>
+                    </div>
+                </div>
+
+                <div>
+                    <button className='p-3 bg-white'>
+                        Create Quests
+                    </button>
+                </div>
+
+            </div>
             <div>
 
 
             </div>
 
             <div className='space-y-3' >
-                <h2 className='font-bold text-[30px] flex flex-row gap-x-4 items-start'>Ongoing Task <span className='bg-[#FF8A00] text-white text-[12px] p-1 rounded-lg '>22</span></h2>
+                <div className='flex flex-row justify-around items-center bg-grey-100'>
+                    <h2 className='font-bold text-[14px]'>Pending Quest</h2>
+                    <h2 className='font-bold text-[14px]'>Unassigned Quest</h2>
+                    <h2 className='font-bold text-[14px]'>Completed Quest</h2>
+
+                </div>
 
                 <div className='space-y-3 h-[400px] overflow-scroll remove-scroll'>
                     {dates.map((item, index) => {
