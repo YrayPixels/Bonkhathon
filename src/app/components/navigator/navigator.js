@@ -13,11 +13,15 @@ export default function NavigatorComp() {
                 <div className='fixed w-full   bottom-4 z-50'>
 
                     <div className='flex bg-[#FF8A00] text-white m-auto flex-row justify-around w-11/12 rounded-2xl items-center p-2 py-3 '>
-                        <div className={`${path == '/home' && "bg-white p-1 rounded-xl"}`} onClick={() => { location.href = "/home" }}>
+                        <div className={`${path == '/home' && "bg-white p-1 flex items-center flex-col justify-center rounded-xl"}`} onClick={() => { location.href = "/home" }}>
                             <Image src="/nav/home.png" width={35} alt="" height={35} />
+                            <p className='text-xs text-black'>Home</p>
+
                         </div>
-                        <div onMouseEnter={() => setActive("parent")}>
+                        <div className={`${path == '/create-task' && "bg-white p-1 flex flex-col justify-center items-center rounded-xl"}`} onMouseEnter={() => setActive("parent")} onClick={() => { location.href = "/create-task" }}>
                             <Image src="/nav/parent.png" width={35} alt="" height={35} />
+                            <p className='text-xs text-black'>Create Task</p>
+
 
                         </div>
                         <div onMouseEnter={() => setActive("child")}>
