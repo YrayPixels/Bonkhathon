@@ -10,6 +10,7 @@ export default function Tasks() {
         <div className='w-11/12 py-4 m-auto'>
 
             <div>
+
                 <h2>Task Title</h2>
                 <p>lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.s
