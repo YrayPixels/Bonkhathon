@@ -69,16 +69,16 @@ export default function ParentDashboard() {
                 <div className='flex flex-row justify-between items-start'>
                     <div>
                         <h2 className='font-bold text-white text-[20px]'>Quests Assigned</h2>
-                        <p className='text-white text-center font-bold'>0</p>
+                        <p className='text-white text-center text-[24px]  font-bold'>0</p>
                     </div>
                     <div>
                         <h2 className='font-bold text-white text-[20px]'>Quests Assigned</h2>
-                        <p className='text-white text-center font-bold'>0</p>
+                        <p className='text-white text-center text-[24px] font-bold'>0</p>
                     </div>
                 </div>
 
                 <div className='w-full flex justify-center'>
-                    <button className='p-2 hover: font-bold rounded-2xl shadow bg-white'>
+                    <button onClick={() => { location.href = "/create-task" }} className='p-2 hover: font-bold rounded-2xl shadow bg-white'>
                         Create Quests
                     </button>
                 </div>

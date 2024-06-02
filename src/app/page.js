@@ -33,8 +33,8 @@ export default function Home() {
             {splash &&
                 <div className='bg-[#FF8A00] h-screen w-full flex  flex-row justify-center items-center'>
                     <div>
-                        <p className='text-white text-[40px]'>
-                            Giggles
+                        <p className='text-white font-bold italic text-[40px]'>
+                            Chore Champ
                         </p>
                         <div className='flex flex-row justify-center'>
                             <CircularProgress sx={{ color: 'white' }} />
