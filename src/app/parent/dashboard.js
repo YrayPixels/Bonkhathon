@@ -45,6 +45,8 @@ export default function ParentDashboard() {
         }
     }, [dates]);
 
+
+    const [activeTab, setActiveTab] = useState('pending')
     return (
         <div className='w-full px-4 m-auto'>
 
@@ -63,20 +65,20 @@ export default function ParentDashboard() {
                 })}
             </div>
 
-            <div className='h-[164px] bg-red-200 rounded-2xl p-4 mb-4'>
-                <div className='flex flex-row justify-between items-center'>
+            <div className="h-[164px] bg-cover  bg-[url('/main.png')] rounded-2xl p-4 mb-4 space-y-4">
+                <div className='flex flex-row justify-between items-start'>
                     <div>
-                        <h2 className='font-bold text-white'>Quests Assigned</h2>
+                        <h2 className='font-bold text-white text-[20px]'>Quests Assigned</h2>
                         <p className='text-white text-center font-bold'>0</p>
                     </div>
                     <div>
-                        <h2 className='font-bold text-white'>Quests Assigned</h2>
+                        <h2 className='font-bold text-white text-[20px]'>Quests Assigned</h2>
                         <p className='text-white text-center font-bold'>0</p>
                     </div>
                 </div>
 
-                <div>
-                    <button className='p-3 bg-white'>
+                <div className='w-full flex justify-center'>
+                    <button className='p-2 hover: font-bold rounded-2xl shadow bg-white'>
                         Create Quests
                     </button>
                 </div>
@@ -88,17 +90,17 @@ export default function ParentDashboard() {
             </div>
 
             <div className='space-y-3' >
-                <div className='flex flex-row justify-around items-center bg-grey-100'>
-                    <h2 className='font-bold text-[14px]'>Pending Quest</h2>
-                    <h2 className='font-bold text-[14px]'>Unassigned Quest</h2>
-                    <h2 className='font-bold text-[14px]'>Completed Quest</h2>
+                <div className='flex flex-row justify-around items-center bg-grey-100 p-2'>
+                    <h2 onClick={() => setActiveTab('pending')} className={`font-bold text-[14px] ${activeTab == 'pending' && "p-1 rounded-lg bg-[#FF8A00] text-white"}`}>Pending Quest</h2>
+                    <h2 onClick={() => setActiveTab('unassigned')} className={`font-bold text-[14px] ${activeTab == 'unassigned' && "p-1 rounded-lg bg-[#FF8A00] text-white"}`}>Unassigned Quest</h2>
+                    <h2 onClick={() => setActiveTab('completed')} className={`font-bold text-[14px] ${activeTab == 'completed' && "p-1 rounded-lg bg-[#FF8A00] text-white"}`}>Completed Quest</h2>
 
                 </div>
 
                 <div className='space-y-3 h-[400px] overflow-scroll remove-scroll'>
                     {dates.map((item, index) => {
                         return (
-                            <div key={index} className='rounded-2xl shadow bg-[#FF8A00]/10 p-3'>
+                            <div key={index} className='rounded-2xl shadow bg-white border p-3'>
                                 <div className='font-bold text-[16px]'>House Cleaning</div>
 
                                 <p className='text-[14px] border-b border-black/50 pb-3'>
