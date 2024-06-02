@@ -8,7 +8,7 @@ export default function HeaderComp() {
     let path = usePathname();
     console.log(path);
     return (
-        <div className='w-11/12 m-auto pt-4'>
+        <div className='w-11/12 m-auto'>
             {path == '/' ? <></> : path == '/login' ? <></> :
 
                 <div className='flex flex-row pt-2 justify-between items-center'>

@@ -1,62 +1,60 @@
 'use client'
 import { CalendarMonth, Notifications } from '@mui/icons-material'
 import { Avatar } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 export default function ParentDashboard() {
 
-    let dates = [
-        {
-            day: "Mon",
-            date: "12",
-        },
-        {
-            day: "Tue",
-            date: "13",
-        },
-        {
-            day: "Wed",
-            date: "14",
-        },
-        {
-            day: "Thu",
-            date: "15",
-        },
-        {
-            day: "Fri",
-            date: "16",
-        },
-        {
-            day: "Sat",
-            date: "17",
-        },
-        {
-            day: "Sun",
-            date: "18",
-        },
-    ]
+    const [dates, setDates] = useState([]);
+    useEffect(() => {
+        function getDaysInMonth(year, month) {
+            return new Date(year, month + 1, 0).getDate();
+        }
 
-    let dashboard = [
+        function generateDatesForCurrentMonth() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            const daysInMonth = getDaysInMonth(year, month);
 
-    ]
+            const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const datesArray = [];
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const currentDate = new Date(year, month, day);
+                const dayOfWeek = daysOfWeek[currentDate.getDay()];
+                datesArray.push({
+                    day: dayOfWeek,
+                    date: day.toString().padStart(2, '0'),
+                    isToday: day === date.getDate()
+                });
+            }
+            setDates(datesArray);
+        }
+
+        generateDatesForCurrentMonth();
+
+    }, [])
+
+    const containerRef = useRef(null);
+    const todayRef = useRef(null);
+
+    useEffect(() => {
+        if (todayRef.current) {
+            todayRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }, [dates]);
+
     return (
         <div className='w-11/12 p-3 m-auto'>
 
-            <div className='flex flex-row pt-6 justify-between items-center'>
-
-                <div className='flex flex-row justify-between items-center gap-x-2'>
-                    <Avatar />
-                    <h1>Hi, User</h1>
-                </div>
-                <div>
-                    <Notifications className='text-[#FF8A00]' />
-                </div>
-            </div>
             {/* dates */}
-            <div className='flex flex-row gap-x-2 remove-scroll justify-start overflow-scroll py-5'>
+            <div ref={containerRef} className='flex flex-row gap-x-2 remove-scroll justify-start overflow-scroll py-5'>
                 {dates.map((item, index) => {
                     return (
-                        <div key={index} className='rounded-2xl shadow hover:bg-[#FF8A00] hover:text-white p-2'>
+                        <div key={index}
+                            ref={item.isToday ? todayRef : null}
+                            className={`rounded-2xl shadow ${item.isToday ? "bg-[#ff8a00] text-white" : ""} hover:bg-[#FF8A00] hover:text-white p-2`}>
                             <div className='border-b text-center'>{item.day}</div>
 
                             <div className='text-[28px] text-center font-bold'> {item.date}</div>

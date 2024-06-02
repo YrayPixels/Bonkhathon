@@ -31,7 +31,7 @@ export default function Home() {
     return (
         <div>
             {splash &&
-                <div className='bg-[#FF8A00] h-screen w-full flex flex-row justify-center items-center'>
+                <div className='bg-[#FF8A00] h-screen w-full flex  flex-row justify-center items-center'>
                     <div>
                         <p className='text-white text-[40px]'>
                             Giggles

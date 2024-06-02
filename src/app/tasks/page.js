@@ -9,7 +9,7 @@ export default function Tasks() {
     const params = useSearchParams();
     let id = params.get('id');
 
-    const [markComplete, setMarkComplete] = React.useState(true)
+    const [markComplete, setMarkComplete] = React.useState(false)
 
     return (
         <div className='w-11/12 py-4 m-auto'>
@@ -36,7 +36,7 @@ export default function Tasks() {
                                 <h2 className='font-bold text-center'>Kindly Upload Pictures as Proof</h2>
                             </div>
                             <div className='w-full flex justify-center py-10 rounded-full'>
-                                <input type="file" name="file" id="file" className='' />
+                                <input multiple type="file" name="file" id="file" className='' />
                             </div>
                             <div className='justify-center flex'>
                                 <button className='p-3 w-[50%] m-auto bg-[#FF8A00] text-white font-bold rounded-2xl'>Submit</button>
