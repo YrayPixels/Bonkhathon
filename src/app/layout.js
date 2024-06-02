@@ -11,13 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className='' style={{ color: SECONDARY }}>
-        {/* <HeaderComp /> */}
-
-        {/* <WalletContextUser> */}
+        <HeaderComp />
         {children}
-        {/* </WalletContextUser> */}
-
-        {/* <NavigatorComp /> */}
+        <NavigatorComp />
 
       </body>
     </html>

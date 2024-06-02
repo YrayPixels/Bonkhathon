@@ -6,7 +6,7 @@ import React from 'react'
 
 export default function NavigatorComp() {
     let path = usePathname();
-    console.log(path);
+    const [active, setActive] = React.useState("home")
     return (
         <>
             {path == '/' ? <></> : path == '/login' ? <></> :
@@ -20,7 +20,7 @@ export default function NavigatorComp() {
                             <Image src="/nav/parent.png" width={35} alt="" height={35} />
 
                         </div>
-                        <div onMouseEnter={() => setActive("chile")}>
+                        <div onMouseEnter={() => setActive("child")}>
                             <Image src="/nav/child.png" width={35} alt="" height={35} />
 
                         </div>
