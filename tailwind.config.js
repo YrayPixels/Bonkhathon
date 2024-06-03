@@ -17,6 +17,7 @@ module.exports = {
         'red_col': '#EA2B1F',
         'primary_col': '#F8F8FF',
         'secon_col': '#1A1B41',
+        'main': '#FF8A00'
       }
     },
   },

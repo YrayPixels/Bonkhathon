@@ -100,7 +100,9 @@ export default function ParentDashboard() {
                 <div className='space-y-3 h-[400px] overflow-scroll remove-scroll'>
                     {dates.map((item, index) => {
                         return (
-                            <div key={index} className='rounded-2xl shadow bg-white border p-3'>
+                            <div
+                                onClick={() => { location.href = `/tasks?id=${index}` }}
+                                key={index} className='rounded-2xl shadow bg-white border p-3'>
                                 <div className='font-bold text-[16px]'>House Cleaning</div>
 
                                 <p className='text-[14px] border-b border-black/50 pb-3'>
