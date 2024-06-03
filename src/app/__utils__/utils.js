@@ -9,8 +9,8 @@ export const splashscreen = [
         image: "/images/robot.png",
         imageW: 211,
         imageH: 280,
-        title: "Welcome to Giggles",
-        sub_title: "Giggles makes chores fun and rewarding for kids! Parents can easily assign tasks, and kids earn points for completing them. Redeem points for exciting rewards. Say goodbye to chore stress and hello to a happier home with ChoreChamp!"
+        title: "Welcome to ChoreChamp!",
+        sub_title: "ChoreChamp makes chores fun and rewarding for kids! Parents can easily assign tasks, and kids earn points for completing them. Redeem points for exciting rewards. Say goodbye to chore stress and hello to a happier home with ChoreChamp!"
     },
     {
         image: "/images/children.png",
