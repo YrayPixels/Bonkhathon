@@ -7,7 +7,7 @@ import { useAnchorWallet, useConnection, useWallet } from "@solana/wallet-adapte
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { labels } from '../__utils__/utils'
 import CustomInput from './customInput/customInput'
-
+import { fetchChild, fetchUser } from '../login/utils'
 
 export default function WalletComp() {
   const { connection } = useConnection();
@@ -37,10 +37,32 @@ export default function WalletComp() {
     } else {
       setConnected(true);
       setWalletAddress(publicKey?.toBase58());
-      location.href = '/home';
+      // location.href = '/home';
     }
 
   }, [publicKey])
+
+  useEffect(() => {
+    if (onConnect) {
+      onConnect();
+    }
+    if (buttonState == 'connected') {
+      async function getUser() {
+        let userType = window.localStorage.getItem('userType');
+        if (userType == 'Parent') {
+          let user = await fetchUser(publicKey?.toBase58());
+          localStorage.setItem('user', JSON.stringify(user))
+          location.href = '/home'
+        } else {
+          let user = await fetchChild(publicKey?.toBase58());
+          localStorage.setItem('user', JSON.stringify(user))
+          location.href = '/home'
+        }
+      }
+      getUser();
+    }
+
+  }, [onConnect, buttonState])
   function startConnection() {
     setVisible(!visible);
     switch (buttonState) {
@@ -137,13 +159,13 @@ export default function WalletComp() {
                   localStorage.setItem('userType', 'Parent')
                   // location.href = '/home'
                   setOnBoarding(false)
-                }} class="blobloader flex flex-row justify-center items-center font-bold text-white">
+                }} className="blobloader flex flex-row justify-center items-center font-bold text-white">
                   Parent
                 </div>
                 <div onClick={() => {
                   localStorage.setItem('userType', 'Child')
                   setOnBoarding(false)
-                }} class="blobloader2 flex flex-row justify-center items-center font-bold text-white">
+                }} className="blobloader2 flex flex-row justify-center items-center font-bold text-white">
                   Child
                 </div>
               </div>

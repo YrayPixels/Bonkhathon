@@ -27,7 +27,7 @@ export default function Tasks() {
             <div className='space-y-3'>
 
                 <h2 className='font-bold text-[24px] bg-main text-white p-2 rounded-lg'>Task Title</h2>
-                <div className='h-[400px] border rounded-2xl p-2 overflow-scroll'>
+                <div className='h-[350px] border rounded-2xl p-2 overflow-scroll'>
 
                     <p className=''>lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.s
