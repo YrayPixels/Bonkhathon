@@ -5,12 +5,12 @@ import WalletContextUser from '../context/walletContext'
 import { isLoggedIn } from '../login/utils'
 
 export default function HomePage() {
-  useEffect(() => {
-    let response = isLoggedIn();
-    if (response.status == false) {
-      location.href = '/login'
-    }
-  }, [])
+  // useEffect(() => {
+  //   let response = isLoggedIn();
+  //   if (response.status == false) {
+  //     location.href = '/login'
+  //   }
+  // }, [])
   return (
     <WalletContextUser>
       <Dashboard />
