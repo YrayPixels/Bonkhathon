@@ -50,12 +50,12 @@ export default function WalletComp() {
       async function getUser() {
         let userType = window.localStorage.getItem('userType');
         if (userType == 'Parent') {
-          let user = await fetchUser(publicKey?.toBase58());
-          localStorage.setItem('user', JSON.stringify(user))
+          // let user = await fetchUser(publicKey?.toBase58());
+          // localStorage.setItem('user', JSON.stringify(user))
           location.href = '/home'
         } else {
-          let user = await fetchChild(publicKey?.toBase58());
-          localStorage.setItem('user', JSON.stringify(user))
+          // let user = await fetchChild(publicKey?.toBase58());
+          // localStorage.setItem('user', JSON.stringify(user))
           location.href = '/home'
         }
       }
